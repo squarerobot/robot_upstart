@@ -97,7 +97,7 @@ fi
 log info "@(name): Generated launchfile: $LAUNCH_FILENAME"
 
 # Punch it.
-su @(user) -c "roslaunch $LAUNCH_FILENAME @(roslaunch_wait?'--wait ')" &
+su @(user) -m -c "PATH=$PATH roslaunch $LAUNCH_FILENAME @(roslaunch_wait?'--wait ')" &
 PID=$!
 
 log info "@(name): Started roslaunch as background process, PID $PID, ROS_LOG_DIR=$ROS_LOG_DIR"
