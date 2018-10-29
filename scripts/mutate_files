@@ -83,6 +83,9 @@ for path in paths:
             except OSError:
                 print "WARNING: Unable to remove directory %s. Additional user-added files may be present." % path
         else:
-            os.remove(path)
+            try:
+                os.remove(path)
+            except OSError:
+                print "WARNING: Unable to remove file %s. May have already been removed." % path
 
 exit(0)
